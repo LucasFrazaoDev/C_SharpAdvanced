@@ -12,10 +12,15 @@ public class GenericTest : MonoBehaviour
         items.Add(new Item());
         items.Add(new Item());
 
+        items.Add(new Weapon(5));
+        items.Add(new Weapon(26));
+
         //GetItemsByType<Item>();
 
         foreach (var item in GetItemsByType<Item>())
         {
+
+
             Debug.Log(item);
         }
     }
