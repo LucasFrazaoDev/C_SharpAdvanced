@@ -6,6 +6,9 @@ public class GenericTest : MonoBehaviour
 {
     [SerializeField] private List<Item> items = new List<Item>();
 
+    // This numeric list was to remember how to declare a list and assign values immediately
+    //[SerializeField] private List<int> numbers = new List<int> { 1, 5 };
+
     private void Start()
     {
         items.Add(new Item());
@@ -15,17 +18,15 @@ public class GenericTest : MonoBehaviour
         items.Add(new Weapon(5));
         items.Add(new Weapon(26));
 
-        //GetItemsByType<Item>();
+        // GetItemsByType<Item>();
 
         foreach (var item in GetItemsByType<Item>())
         {
-
-
             Debug.Log(item);
         }
     }
 
-    List<Item> GetItemsByType<T>() where T : Item
+    private List<Item> GetItemsByType<T>() where T : Item
     {
         List<Item> itemsReturn = new List<Item>();
 
@@ -33,6 +34,7 @@ public class GenericTest : MonoBehaviour
         {
             if (items[i] is T)
                 itemsReturn.Add(items[i]);
+            Debug.Log("Item " + i);
         }
 
         return itemsReturn;
